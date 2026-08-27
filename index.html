@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Halaman spesial untuk merayakan anniversary kita — cerita cinta yang tak lekang oleh waktu.">
+<title>Cerita Kita — Anniversary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   CSS RESET & VARIABLES
+   ═══════════════════════════════════════ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --maroon: #6B1D2A;
+  --maroon-deep: #4A0E1C;
+  --maroon-light: #8B2E3E;
+  --gold: #C9A84C;
+  --gold-light: #E0C872;
+  --gold-pale: #F0DFA0;
+  --cream: #FDF6EC;
+  --ivory: #FFFAF3;
+  --warm-white: #FFF8F0;
+  --text-dark: #2C1018;
+  --text-body: #4A2A33;
+  --text-muted: #7A5A63;
+  --rose-blush: #F5E1E4;
+  --shadow-warm: rgba(107, 29, 42, 0.12);
+  --shadow-gold: rgba(201, 168, 76, 0.25);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-body);
+  background: var(--cream);
+  overflow-x: hidden;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--maroon-light); }
+
+/* ═══════════════════════════════════════
+   PARTICLES CANVAS
+   ═══════════════════════════════════════ */
+#particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════
+   HERO / OPENING SECTION
+   ═══════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(107, 29, 42, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 60%),
+    linear-gradient(175deg, var(--ivory) 0%, var(--cream) 40%, var(--warm-white) 100%);
+  padding: 2rem;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 168, 76, 0.1) 0%, transparent 70%);
+  animation: float-orb 8s ease-in-out infinite;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(107, 29, 42, 0.07) 0%, transparent 70%);
+  animation: float-orb 10s ease-in-out infinite reverse;
+}
+
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+.hero-content {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: hero-fade-in 2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+  z-index: 3;
+}
+
+@keyframes hero-fade-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-ornament {
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: hero-fade-in 1.5s ease 1s forwards;
+  letter-spacing: 0.5rem;
+}
+
+.hero-subtitle-top {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: hero-fade-in 1.5s ease 1.2s forwards;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 7vw, 5rem);
+  font-weight: 700;
+  color: var(--maroon);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: hero-fade-in 1.8s ease 1.5s forwards;
+}
+
+.hero h1 .ampersand {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 400;
+  display: inline-block;
+  margin: 0 0.15em;
+}
+
+.hero-date {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 1rem;
+  opacity: 0;
+  animation: hero-fade-in 1.5s ease 2s forwards;
+}
+
+.hero-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 2rem auto;
+  opacity: 0;
+  animation: hero-fade-in 1.5s ease 2.3s forwards;
+}
+
+.hero-counter {
+  margin-top: 0.5rem;
+  opacity: 0;
+  animation: hero-fade-in 1.5s ease 2.5s forwards;
+}
+
+.hero-counter p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.counter-grid {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.counter-item {
+  text-align: center;
+  min-width: 70px;
+}
+
+.counter-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--maroon);
+  line-height: 1;
+  display: block;
+}
+
+.counter-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 0.3rem;
+  display: block;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: hero-fade-in 1.5s ease 3s forwards;
+  cursor: pointer;
+}
+
+.scroll-indicator span {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.scroll-arrow {
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  transform: rotate(45deg);
+  animation: bounce-arrow 2s ease-in-out infinite;
+}
+
+@keyframes bounce-arrow {
+  0%, 100% { transform: rotate(45deg) translate(0, 0); opacity: 0.5; }
+  50% { transform: rotate(45deg) translate(5px, 5px); opacity: 1; }
+}
+
+/* ═══════════════════════════════════════
+   SECTION COMMON STYLES
+   ═══════════════════════════════════════ */
+section {
+  position: relative;
+  z-index: 2;
+}
+
+.section-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--maroon);
+  text-align: center;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-style: italic;
+  max-width: 500px;
+  margin: 0 auto 3rem;
+}
+
+.section-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 2rem;
+}
+
+/* Background variations */
+.bg-white {
+  background: var(--ivory);
+}
+
+.bg-cream {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(201, 168, 76, 0.04) 0%, transparent 50%),
+    var(--cream);
+}
+
+.bg-maroon {
+  background:
+    radial-gradient(ellipse at 30% 30%, rgba(139, 46, 62, 0.15) 0%, transparent 60%),
+    linear-gradient(170deg, var(--maroon-deep) 0%, var(--maroon) 50%, var(--maroon-light) 100%);
+  color: var(--cream);
+}
+
+.bg-maroon .section-label { color: var(--gold-light); }
+.bg-maroon .section-title { color: var(--cream); }
+.bg-maroon .section-subtitle { color: rgba(253, 246, 236, 0.7); }
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL ANIMATIONS
+   ═══════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ═══════════════════════════════════════
+   GALLERY SECTION
+   ═══════════════════════════════════════ */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, var(--rose-blush) 0%, #E8D5C8 100%);
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.5s ease;
+}
+
+.gallery-item:nth-child(2) {
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px var(--shadow-warm);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--maroon-light);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  gap: 0.8rem;
+}
+
+.gallery-placeholder-icon {
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(74, 14, 28, 0.7) 0%, transparent 60%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-item:hover .gallery-item-overlay {
+  opacity: 1;
+}
+
+.gallery-item-caption {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  color: var(--cream);
+  font-size: 0.85rem;
+}
+
+/* ═══════════════════════════════════════
+   TIMELINE SECTION
+   ═══════════════════════════════════════ */
+.timeline {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold-pale), var(--gold), var(--gold-pale));
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -3rem;
+  top: 0.3rem;
+  width: 14px;
+  height: 14px;
+  background: var(--gold);
+  border-radius: 50%;
+  transform: translateX(-6px);
+  box-shadow: 0 0 0 4px var(--cream), 0 0 0 6px var(--gold-pale);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: translateX(-6px) scale(1.3);
+  box-shadow: 0 0 0 4px var(--cream), 0 0 0 8px var(--gold-light), 0 0 20px var(--shadow-gold);
+}
+
+.timeline-date {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.timeline-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--maroon);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════
+   REASONS SECTION
+   ═══════════════════════════════════════ */
+.reasons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.reason-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.reason-card:hover {
+  transform: translateX(8px);
+  box-shadow: 0 8px 30px var(--shadow-warm);
+  border-color: rgba(201, 168, 76, 0.4);
+}
+
+.reason-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  min-width: 2rem;
+  line-height: 1;
+  padding-top: 0.15rem;
+}
+
+.reason-text {
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════
+   LOVE LETTER SECTION
+   ═══════════════════════════════════════ */
+.love-letter-wrapper {
+  max-width: 650px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.love-letter {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(253, 246, 236, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  box-shadow:
+    0 20px 60px rgba(107, 29, 42, 0.08),
+    0 0 0 1px rgba(201, 168, 76, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.love-letter::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem;
+  color: rgba(201, 168, 76, 0.1);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.love-letter-greeting {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--maroon);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.love-letter-body {
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 2;
+  margin-bottom: 2rem;
+}
+
+.love-letter-body p {
+  margin-bottom: 1rem;
+}
+
+.love-letter-sign {
+  text-align: right;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--maroon);
+  font-size: 1.1rem;
+}
+
+.love-letter-sign .sign-love {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--gold);
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+/* ═══════════════════════════════════════
+   INTERACTIVE BUTTON
+   ═══════════════════════════════════════ */
+.magic-section {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.magic-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--cream);
+  background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-light) 100%);
+  border: 2px solid var(--gold);
+  border-radius: 60px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 10;
+}
+
+.magic-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.magic-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px var(--shadow-gold);
+  color: var(--maroon-deep);
+}
+
+.magic-btn:hover::before {
+  opacity: 1;
+}
+
+.magic-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Heart rain canvas */
+#heart-rain-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ═══════════════════════════════════════
+   MUSIC BUTTON
+   ═══════════════════════════════════════ */
+.music-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: rgba(255, 250, 243, 0.9);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  box-shadow: 0 4px 15px var(--shadow-warm);
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px var(--shadow-gold);
+  background: var(--gold-pale);
+}
+
+.music-toggle.playing {
+  background: var(--gold);
+  animation: pulse-music 2s ease-in-out infinite;
+}
+
+@keyframes pulse-music {
+  0%, 100% { box-shadow: 0 4px 15px var(--shadow-gold); }
+  50% { box-shadow: 0 4px 25px var(--shadow-gold), 0 0 0 8px rgba(201, 168, 76, 0.15); }
+}
+
+/* ═══════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════ */
+.footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--maroon-deep);
+  color: rgba(253, 246, 236, 0.5);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.footer-heart {
+  color: var(--gold);
+  display: inline-block;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.25); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.15); }
+  60% { transform: scale(1); }
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .section-inner {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .gallery-item:nth-child(2) {
+    grid-row: span 1;
+    aspect-ratio: 1;
+  }
+
+  .timeline {
+    padding-left: 2.5rem;
+  }
+
+  .timeline::before {
+    left: 0;
+  }
+
+  .timeline-dot {
+    left: -2.5rem;
+  }
+
+  .counter-grid {
+    gap: 1rem;
+  }
+
+  .counter-number {
+    font-size: 2rem;
+  }
+
+  .love-letter {
+    padding: 2rem 1.5rem;
+  }
+
+  .reason-card {
+    padding: 1.2rem;
+  }
+
+  .music-toggle {
+    bottom: 1.2rem;
+    right: 1.2rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .hero-ornament {
+    font-size: 1.8rem;
+  }
+
+  .counter-number {
+    font-size: 1.6rem;
+  }
+
+  .counter-label {
+    font-size: 0.6rem;
+  }
+
+  .magic-btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* ═══════════════════════════════════════
+   WAVE DIVIDER
+   ═══════════════════════════════════════ */
+.wave-divider {
+  position: relative;
+  height: 80px;
+  overflow: hidden;
+}
+
+.wave-divider.cream-to-white {
+  background: var(--cream);
+}
+
+.wave-divider.cream-to-white svg {
+  fill: var(--ivory);
+}
+
+.wave-divider.white-to-maroon {
+  background: var(--ivory);
+}
+
+.wave-divider.white-to-maroon svg {
+  fill: var(--maroon-deep);
+}
+
+.wave-divider.maroon-to-cream {
+  background: var(--maroon-light);
+}
+
+.wave-divider.maroon-to-cream svg {
+  fill: var(--cream);
+}
+
+.wave-divider.cream-to-ivory {
+  background: var(--cream);
+}
+
+.wave-divider.cream-to-ivory svg {
+  fill: var(--ivory);
+}
+
+.wave-divider svg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     PARTICLES BACKGROUND
+     ═══════════════════════════════════════ -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- ═══════════════════════════════════════
+     HEART RAIN CANVAS
+     ═══════════════════════════════════════ -->
+<canvas id="heart-rain-canvas"></canvas>
+
+<!-- ═══════════════════════════════════════
+     MUSIC TOGGLE
+     ═══════════════════════════════════════ -->
+<button class="music-toggle" id="musicToggle" aria-label="Toggle musik" title="Play/Pause Musik">
+  <span id="musicIcon">♪</span>
+</button>
+
+<!-- Background music — ganti src dengan file musik kamu -->
+<audio id="bgMusic" loop preload="none">
+  <!-- <source src="musik-kamu.mp3" type="audio/mpeg"> -->
+  <!-- Taruh file musik (.mp3) di folder yang sama, lalu uncomment baris di atas dan ganti nama filenya -->
+</audio>
+
+<!-- ═══════════════════════════════════════
+     HERO SECTION
+     ═══════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-ornament">✦ ♥ ✦</div>
+    <p class="hero-subtitle-top">Merayakan Cinta Kita</p>
+    <h1>
+      <!-- ✏️ GANTI NAMA DI BAWAH INI -->
+      Fajar Heryanto <span class="ampersand">&</span> Nazma Akmalia
+    </h1>
+    <p class="hero-date">
+      <!-- ✏️ GANTI TANGGAL JADIAN DI BAWAH INI -->
+      Bersama sejak 11 November 2023
+    </p>
+    <div class="hero-divider"></div>
+    <div class="hero-counter">
+      <p>Kita sudah bersama selama</p>
+      <div class="counter-grid" id="counterGrid">
+        <div class="counter-item">
+          <span class="counter-number" id="counterYears">0</span>
+          <span class="counter-label">Tahun</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-number" id="counterMonths">0</span>
+          <span class="counter-label">Bulan</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-number" id="counterDays">0</span>
+          <span class="counter-label">Hari</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-number" id="counterHours">0</span>
+          <span class="counter-label">Jam</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-number" id="counterMinutes">0</span>
+          <span class="counter-label">Menit</span>
+        </div>
+        <div class="counter-item">
+          <span class="counter-number" id="counterSeconds">0</span>
+          <span class="counter-label">Detik</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">
+    <span>Scroll ke bawah</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- Wave Divider -->
+<div class="wave-divider cream-to-white" aria-hidden="true">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════
+     GALLERY SECTION
+     ═══════════════════════════════════════ -->
+<section class="bg-white" id="gallery">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Kenangan Kita</p>
+      <h2 class="section-title">Galeri Foto</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Setiap momen bersamamu adalah kenangan yang tak ternilai</p>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- ✏️ GANTI placeholder dengan foto kamu menggunakan tag <img> -->
+      <div class="gallery-item reveal reveal-delay-1">
+        <img src="foto 1.jpeg" alt="Kenangan pertama kita">
+        <div class="gallery-item-overlay">
+          <span class="gallery-item-caption">Kenangan pertama kita</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2">
+        <img src="foto 2.jpeg" alt="Momen spesial">
+        <div class="gallery-item-overlay">
+          <span class="gallery-item-caption">Momen spesial</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3">
+        <img src="foto 3.jpeg" alt="Selalu tersenyum">
+        <div class="gallery-item-overlay">
+          <span class="gallery-item-caption">Selalu tersenyum</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-4">
+        <img src="foto 4.jpeg" alt="Bahagia bersamamu">
+        <div class="gallery-item-overlay">
+          <span class="gallery-item-caption">Bahagia bersamamu</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1">
+        <img src="foto 5.jpeg" alt="Petualangan kita">
+        <div class="gallery-item-overlay">
+          <span class="gallery-item-caption">Petualangan kita</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave Divider -->
+<div class="wave-divider cream-to-ivory" style="background: var(--ivory);" aria-hidden="true">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="fill: var(--cream);">
+    <path d="M0,20 C480,70 960,10 1440,50 L1440,80 L0,80 Z"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TIMELINE SECTION
+     ═══════════════════════════════════════ -->
+<section class="bg-cream" id="timeline">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Perjalanan Kita</p>
+      <h2 class="section-title">Timeline Cinta</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Setiap langkah bersama terukir dalam hati</p>
+    </div>
+
+    <div class="timeline">
+      <!-- ✏️ EDIT momen-momen di bawah ini sesuai cerita kalian -->
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">November 2023</p>
+        <h3 class="timeline-title">Pertama Kali Bertemu</h3>
+        <p class="timeline-desc">
+          Hari itu dunia terasa berbeda. Senyummu yang pertama kali kulihat langsung mengubah segalanya. Sejak saat itu, aku tahu hidupku tak akan pernah sama lagi.
+        </p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">Desember 2023</p>
+        <h3 class="timeline-title">Date Pertama</h3>
+        <p class="timeline-desc">
+          Grogi, canggung, tapi jantung berdebar penuh harap. Kopi yang kita pesan bahkan sudah dingin karena kita terlalu asyik mengobrol. Malam itu aku tahu — kamu orangnya.
+        </p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">Maret 2024</p>
+        <h3 class="timeline-title">Liburan Pertama Bersama</h3>
+        <p class="timeline-desc">
+          Pantai, matahari terbenam, dan tanganmu yang menggenggam erat. Setiap detik di perjalanan itu jadi bukti bahwa kebahagiaan itu nyata — dan dia ada di sebelahku.
+        </p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">November 2024</p>
+        <h3 class="timeline-title">Anniversary Pertama</h3>
+        <p class="timeline-desc">
+          Satu tahun berlalu bagai kedipan mata. Tapi setiap harinya penuh makna. Terima kasih sudah menjadi alasan terbesarku untuk tersenyum setiap hari.
+        </p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <p class="timeline-date">Hari Ini</p>
+        <h3 class="timeline-title">Dan Cerita Kita Terus Berlanjut...</h3>
+        <p class="timeline-desc">
+          Setiap hari bersamamu adalah halaman baru yang indah. Aku tak sabar menulis chapter selanjutnya — bersamamu, selamanya.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave Divider -->
+<div class="wave-divider white-to-maroon" style="background: var(--cream);" aria-hidden="true">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="fill: var(--maroon-deep);">
+    <path d="M0,60 C240,20 480,60 720,30 C960,0 1200,50 1440,20 L1440,80 L0,80 Z"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════
+     REASONS SECTION
+     ═══════════════════════════════════════ -->
+<section class="bg-maroon" id="reasons">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Dari Hati Terdalam</p>
+      <h2 class="section-title">Alasan Aku Cinta Kamu</h2>
+      <div class="section-divider" style="background: linear-gradient(90deg, transparent, var(--gold-light), transparent);"></div>
+      <p class="section-subtitle">Ada jutaan alasan, tapi ini beberapa favoritku</p>
+    </div>
+
+    <div class="reasons-list">
+      <!-- ✏️ EDIT alasan-alasan di bawah ini -->
+      <div class="reason-card reveal">
+        <span class="reason-number">01</span>
+        <p class="reason-text">Karena senyummu bisa menyembuhkan hari terberat sekalipun. Satu senyuman darimu, dan dunia kembali terasa baik-baik saja.</p>
+      </div>
+
+      <div class="reason-card reveal">
+        <span class="reason-number">02</span>
+        <p class="reason-text">Karena kamu selalu percaya padaku, bahkan ketika aku sendiri meragukanku. Kamu adalah tempatku pulang, tempatku merasa cukup.</p>
+      </div>
+
+      <div class="reason-card reveal">
+        <span class="reason-number">03</span>
+        <p class="reason-text">Karena caramu tertawa — tulus, lepas, tanpa beban. Tawa itu selalu jadi melodi favoritku sepanjang hari.</p>
+      </div>
+
+      <div class="reason-card reveal">
+        <span class="reason-number">04</span>
+        <p class="reason-text">Karena kamu menerima semua sisi diriku — yang baik dan yang berantakan. Bersamamu, aku belajar mencintai diriku sendiri.</p>
+      </div>
+
+      <div class="reason-card reveal">
+        <span class="reason-number">05</span>
+        <p class="reason-text">Karena genggaman tanganmu terasa seperti rumah. Di mana pun kita berada, selama bersamamu, aku sudah di tempat yang tepat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave Divider -->
+<div class="wave-divider maroon-to-cream" aria-hidden="true">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+    <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════
+     LOVE LETTER SECTION
+     ═══════════════════════════════════════ -->
+<section class="bg-cream" id="letter">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Untukmu</p>
+      <h2 class="section-title">Surat Cinta</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="love-letter-wrapper reveal">
+      <div class="love-letter">
+        <!-- ✏️ ISI SURAT CINTA KAMU DI SINI -->
+        <p class="love-letter-greeting">Untuk yang paling kucinta,</p>
+        <div class="love-letter-body">
+          <p>
+            Aku tidak pandai merangkai kata. Tapi kalau ada satu hal yang aku tahu pasti di dunia ini, itu adalah — aku bersyukur memilikimu.
+          </p>
+          <p>
+            Kamu bukan hanya kekasihku, tapi sahabatku, tempatku tertawa, tempatku menangis, tempatku menjadi diri sendiri tanpa takut dihakimi. Bersamamu, aku menemukan arti pulang yang sesungguhnya.
+          </p>
+          <p>
+            Terima kasih sudah mau melewati segalanya bersamaku — hari-hari baik yang penuh tawa, dan hari-hari sulit yang kita lalui dengan saling menguatkan. Setiap momen bersamamu adalah hadiah yang tak pernah aku minta, tapi selalu aku syukuri.
+          </p>
+          <p>
+            Aku tidak tahu apa yang menanti kita di masa depan. Tapi aku tahu satu hal — aku ingin menghadapinya bersamamu. Selalu.
+          </p>
+        </div>
+        <div class="love-letter-sign">
+          <span class="sign-love">Dengan segenap cinta,</span>
+          <!-- ✏️ GANTI NAMA DI BAWAH INI -->
+          Fajar Heryanto ♥
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     INTERACTIVE BUTTON SECTION
+     ═══════════════════════════════════════ -->
+<section class="bg-white magic-section" id="magic">
+  <div class="section-inner" style="padding: 4rem 2rem;">
+    <div class="reveal">
+      <p class="section-label" style="margin-bottom: 1.5rem;">Kejutan Kecil</p>
+      <button class="magic-btn" id="heartRainBtn">
+        ✨ Klik di sini untukmu ✨
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ -->
+<footer class="footer">
+  <p>Dibuat dengan <span class="footer-heart">♥</span> untuk selamanya</p>
+</footer>
+
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ──────────────────────────────────────
+     CONFIG — ✏️ GANTI TANGGAL JADIAN DI SINI
+     ────────────────────────────────────── */
+  const ANNIVERSARY_DATE = new Date(2023, 10, 11); // Format: (tahun, bulan-1, hari) — November = 10
+
+  /* ──────────────────────────────────────
+     REAL-TIME COUNTER
+     ────────────────────────────────────── */
+  function updateCounter() {
+    const now = new Date();
+    let years = now.getFullYear() - ANNIVERSARY_DATE.getFullYear();
+    let months = now.getMonth() - ANNIVERSARY_DATE.getMonth();
+    let days = now.getDate() - ANNIVERSARY_DATE.getDate();
+    let hours = now.getHours() - ANNIVERSARY_DATE.getHours();
+    let minutes = now.getMinutes() - ANNIVERSARY_DATE.getMinutes();
+    let seconds = now.getSeconds() - ANNIVERSARY_DATE.getSeconds();
+
+    if (seconds < 0) { seconds += 60; minutes--; }
+    if (minutes < 0) { minutes += 60; hours--; }
+    if (hours < 0) { hours += 24; days--; }
+    if (days < 0) {
+      const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+      days += prevMonth.getDate();
+      months--;
+    }
+    if (months < 0) { months += 12; years--; }
+
+    document.getElementById('counterYears').textContent = years;
+    document.getElementById('counterMonths').textContent = months;
+    document.getElementById('counterDays').textContent = days;
+    document.getElementById('counterHours').textContent = hours;
+    document.getElementById('counterMinutes').textContent = minutes;
+    document.getElementById('counterSeconds').textContent = seconds;
+  }
+
+  updateCounter();
+  setInterval(updateCounter, 1000);
+
+  /* ──────────────────────────────────────
+     SCROLL REVEAL
+     ────────────────────────────────────── */
+  const revealElements = document.querySelectorAll('.reveal');
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  /* ──────────────────────────────────────
+     FLOATING PARTICLES (GOLD & HEARTS)
+     ────────────────────────────────────── */
+  const particleCanvas = document.getElementById('particles-canvas');
+  const pCtx = particleCanvas.getContext('2d');
+  let particles = [];
+
+  function resizeParticleCanvas() {
+    particleCanvas.width = window.innerWidth;
+    particleCanvas.height = window.innerHeight;
+  }
+
+  resizeParticleCanvas();
+  window.addEventListener('resize', resizeParticleCanvas);
+
+  class Particle {
+    constructor() {
+      this.reset();
+    }
+
+    reset() {
+      this.x = Math.random() * particleCanvas.width;
+      this.y = Math.random() * particleCanvas.height;
+      this.size = Math.random() * 3 + 1;
+      this.speedX = (Math.random() - 0.5) * 0.4;
+      this.speedY = Math.random() * -0.3 - 0.1;
+      this.opacity = Math.random() * 0.4 + 0.1;
+      this.opacitySpeed = Math.random() * 0.005 + 0.002;
+      this.opacityDir = 1;
+      this.isHeart = Math.random() > 0.7;
+      this.rotation = Math.random() * Math.PI * 2;
+      this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+    }
+
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      this.rotation += this.rotationSpeed;
+
+      this.opacity += this.opacitySpeed * this.opacityDir;
+      if (this.opacity >= 0.5) this.opacityDir = -1;
+      if (this.opacity <= 0.05) this.opacityDir = 1;
+
+      if (this.y < -20 || this.x < -20 || this.x > particleCanvas.width + 20) {
+        this.x = Math.random() * particleCanvas.width;
+        this.y = particleCanvas.height + 10;
+        this.opacity = 0.05;
+      }
+    }
+
+    draw() {
+      pCtx.save();
+      pCtx.globalAlpha = this.opacity;
+      pCtx.translate(this.x, this.y);
+      pCtx.rotate(this.rotation);
+
+      if (this.isHeart) {
+        this.drawHeart();
+      } else {
+        pCtx.beginPath();
+        pCtx.arc(0, 0, this.size, 0, Math.PI * 2);
+        pCtx.fillStyle = '#C9A84C';
+        pCtx.fill();
+      }
+
+      pCtx.restore();
+    }
+
+    drawHeart() {
+      const s = this.size * 1.8;
+      pCtx.beginPath();
+      pCtx.moveTo(0, s * 0.3);
+      pCtx.bezierCurveTo(-s, -s * 0.3, -s, s * 0.6, 0, s);
+      pCtx.bezierCurveTo(s, s * 0.6, s, -s * 0.3, 0, s * 0.3);
+      pCtx.fillStyle = '#C9A84C';
+      pCtx.fill();
+    }
+  }
+
+  // Create particles
+  const particleCount = Math.min(50, Math.floor(window.innerWidth / 25));
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+  }
+
+  function animateParticles() {
+    pCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    requestAnimationFrame(animateParticles);
+  }
+
+  animateParticles();
+
+  /* ──────────────────────────────────────
+     HEART RAIN / FIREWORKS EFFECT
+     ────────────────────────────────────── */
+  const heartCanvas = document.getElementById('heart-rain-canvas');
+  const hCtx = heartCanvas.getContext('2d');
+  let hearts = [];
+  let sparkles = [];
+  let heartAnimating = false;
+
+  function resizeHeartCanvas() {
+    heartCanvas.width = window.innerWidth;
+    heartCanvas.height = window.innerHeight;
+  }
+
+  resizeHeartCanvas();
+  window.addEventListener('resize', resizeHeartCanvas);
+
+  class FallingHeart {
+    constructor() {
+      this.x = Math.random() * heartCanvas.width;
+      this.y = -20 - Math.random() * 200;
+      this.size = Math.random() * 14 + 8;
+      this.speedY = Math.random() * 2 + 1.5;
+      this.speedX = (Math.random() - 0.5) * 1.5;
+      this.rotation = Math.random() * Math.PI * 2;
+      this.rotationSpeed = (Math.random() - 0.5) * 0.06;
+      this.opacity = Math.random() * 0.4 + 0.6;
+
+      const colors = ['#C9A84C', '#E0C872', '#D4A84C', '#6B1D2A', '#8B2E3E', '#F0DFA0'];
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    update() {
+      this.y += this.speedY;
+      this.x += this.speedX;
+      this.rotation += this.rotationSpeed;
+      this.speedX += (Math.random() - 0.5) * 0.1;
+      this.speedX = Math.max(-2, Math.min(2, this.speedX));
+      return this.y < heartCanvas.height + 30;
+    }
+
+    draw() {
+      hCtx.save();
+      hCtx.globalAlpha = this.opacity;
+      hCtx.translate(this.x, this.y);
+      hCtx.rotate(this.rotation);
+
+      const s = this.size;
+      hCtx.beginPath();
+      hCtx.moveTo(0, s * 0.3);
+      hCtx.bezierCurveTo(-s, -s * 0.3, -s, s * 0.7, 0, s * 1.2);
+      hCtx.bezierCurveTo(s, s * 0.7, s, -s * 0.3, 0, s * 0.3);
+      hCtx.fillStyle = this.color;
+      hCtx.fill();
+
+      hCtx.restore();
+    }
+  }
+
+  class Sparkle {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      this.size = Math.random() * 3 + 1;
+      const angle = Math.random() * Math.PI * 2;
+      const speed = Math.random() * 4 + 2;
+      this.speedX = Math.cos(angle) * speed;
+      this.speedY = Math.sin(angle) * speed;
+      this.life = 1;
+      this.decay = Math.random() * 0.02 + 0.01;
+      const colors = ['#C9A84C', '#E0C872', '#F0DFA0', '#FFF8F0'];
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      this.speedY += 0.05;
+      this.life -= this.decay;
+      return this.life > 0;
+    }
+
+    draw() {
+      hCtx.save();
+      hCtx.globalAlpha = this.life;
+      hCtx.beginPath();
+      hCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      hCtx.fillStyle = this.color;
+      hCtx.fill();
+      hCtx.restore();
+    }
+  }
+
+  function triggerHeartRain() {
+    if (heartAnimating) return;
+    heartAnimating = true;
+
+    // Create hearts
+    let heartCount = 0;
+    const maxHearts = 80;
+    const heartInterval = setInterval(() => {
+      if (heartCount >= maxHearts) {
+        clearInterval(heartInterval);
+        return;
+      }
+      hearts.push(new FallingHeart());
+      heartCount++;
+    }, 40);
+
+    // Create sparkle bursts
+    for (let i = 0; i < 5; i++) {
+      setTimeout(() => {
+        const bx = Math.random() * heartCanvas.width;
+        const by = Math.random() * heartCanvas.height * 0.5;
+        for (let j = 0; j < 30; j++) {
+          sparkles.push(new Sparkle(bx, by));
+        }
+      }, i * 600);
+    }
+
+    // Stop after 5 seconds
+    setTimeout(() => {
+      heartAnimating = false;
+    }, 5000);
+  }
+
+  function animateHeartRain() {
+    hCtx.clearRect(0, 0, heartCanvas.width, heartCanvas.height);
+
+    hearts = hearts.filter(h => {
+      h.draw();
+      return h.update();
+    });
+
+    sparkles = sparkles.filter(s => {
+      s.draw();
+      return s.update();
+    });
+
+    requestAnimationFrame(animateHeartRain);
+  }
+
+  animateHeartRain();
+
+  document.getElementById('heartRainBtn').addEventListener('click', triggerHeartRain);
+
+  /* ──────────────────────────────────────
+     MUSIC TOGGLE
+     ────────────────────────────────────── */
+  const musicBtn = document.getElementById('musicToggle');
+  const musicIcon = document.getElementById('musicIcon');
+  const bgMusic = document.getElementById('bgMusic');
+  let isPlaying = false;
+
+  musicBtn.addEventListener('click', () => {
+    if (isPlaying) {
+      bgMusic.pause();
+      musicBtn.classList.remove('playing');
+      musicIcon.textContent = '♪';
+      isPlaying = false;
+    } else {
+      bgMusic.play().then(() => {
+        musicBtn.classList.add('playing');
+        musicIcon.textContent = '❚❚';
+        isPlaying = true;
+      }).catch(() => {
+        // No audio source or blocked
+        musicBtn.classList.add('playing');
+        musicIcon.textContent = '♪';
+        setTimeout(() => {
+          musicBtn.classList.remove('playing');
+        }, 500);
+      });
+    }
+  });
+
+  /* ──────────────────────────────────────
+     SMOOTH PARALLAX ON HERO
+     ────────────────────────────────────── */
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scroll = window.pageYOffset;
+        const hero = document.querySelector('.hero-content');
+        if (hero && scroll < window.innerHeight) {
+          hero.style.transform = `translateY(${scroll * 0.15}px)`;
+          hero.style.opacity = 1 - (scroll / (window.innerHeight * 0.8));
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
